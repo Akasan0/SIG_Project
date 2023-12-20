@@ -1,16 +1,16 @@
 <layer>
   <name>map_services</name>
-  <id>LayerInfoImpl--5c9183ba:18c7d0ede08:-7feb</id>
+  <id>LayerInfoImpl-2383f476:18c81b1724a:-7fe6</id>
   <type>VECTOR</type>
   <defaultStyle>
     <id>StyleInfoImpl--570ae188:124761b8d78:-7fe0</id>
   </defaultStyle>
   <resource class="featureType">
-    <id>FeatureTypeInfoImpl--5c9183ba:18c7d0ede08:-7fec</id>
+    <id>FeatureTypeInfoImpl-2383f476:18c81b1724a:-7fe7</id>
   </resource>
   <attribution>
     <logoWidth>0</logoWidth>
     <logoHeight>0</logoHeight>
   </attribution>
-  <dateCreated>2023-12-18 15:36:36.311 UTC</dateCreated>
+  <dateCreated>2023-12-19 21:39:14.223 UTC</dateCreated>
 </layer>

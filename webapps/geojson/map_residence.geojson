@@ -1,1 +1,803 @@
-{"type":"FeatureCollection","features":[{"type":"Feature","properties":{"name":"Résidence les Roses ","description":"Pour plus d'informations sur les résidence étudiantes:\nhttps://www.crous-orleans-tours.fr/logements/nos-residences/","_umap_options":{"color":"Orange","labelHover":true,"showLabel":true}},"geometry":{"type":"Polygon","coordinates":[[[1.940734,47.842965],[1.940973,47.842897],[1.940753,47.842611],[1.940903,47.842557],[1.940841,47.842458],[1.940466,47.842586],[1.940289,47.842366],[1.939921,47.842483],[1.939999,47.842568],[1.940141,47.842519],[1.940374,47.842812],[1.940584,47.842751],[1.940734,47.842965]]]}},{"type":"Feature","properties":{"name":"Résidence les Ormes ","description":"Pour plus d'informations sur les résidence étudiantes:\nhttps://www.crous-orleans-tours.fr/logements/nos-residences/","_umap_options":{"labelHover":true,"showLabel":true,"color":"Orange"}},"geometry":{"type":"Polygon","coordinates":[[[1.937006,47.840364],[1.937574,47.840206],[1.937231,47.839655],[1.937424,47.839601],[1.937349,47.839493],[1.93693,47.839655],[1.937081,47.839878],[1.936748,47.839997],[1.937006,47.840364]]]}},{"type":"Feature","properties":{"name":"Résidence les Magnolias","description":"Pour plus d'informations sur les résidence du CROUS: \nhttps://www.crous-orleans-tours.fr/logements/nos-residences/orleans/","_umap_options":{"color":"Orange","showLabel":true,"labelHover":true}},"geometry":{"type":"Polygon","coordinates":[[[1.929187,47.84559],[1.92897,47.845324],[1.928795,47.845351],[1.928471,47.844901],[1.928693,47.844832],[1.928916,47.845124],[1.929082,47.845081],[1.929404,47.845534],[1.929187,47.84559]]]}},{"type":"Feature","properties":{"name":"Résidence les Hêtres","description":"Pour plus d'informations sur les résidence étudiantes:\nhttps://www.crous-orleans-tours.fr/logements/nos-residences/","_umap_options":{"color":"Orange","labelHover":true,"showLabel":true}},"geometry":{"type":"Polygon","coordinates":[[[1.938636,47.840825],[1.938837,47.84076],[1.938677,47.840541],[1.938888,47.840478],[1.938671,47.840159],[1.938808,47.840116],[1.938741,47.840018],[1.938451,47.840105],[1.938387,47.840117],[1.93862,47.840424],[1.938534,47.840449],[1.938502,47.840415],[1.938196,47.840515],[1.938239,47.840596],[1.938408,47.840566],[1.938636,47.840825]]]},"id":38},{"type":"Feature","properties":{"name":"Résidence les Dahlias","description":"Pour plus d'informations sur les résidence étudiantes:\nhttps://www.crous-orleans-tours.fr/logements/nos-residences/","_umap_options":{"color":"Orange","labelHover":true,"showLabel":true}},"geometry":{"type":"Polygon","coordinates":[[[1.939095,47.8421],[1.939242,47.842287],[1.93946,47.842217],[1.939256,47.841936],[1.939446,47.841875],[1.939355,47.841752],[1.938966,47.84188],[1.938784,47.841655],[1.938532,47.841743],[1.938403,47.841801],[1.938486,47.8419],[1.938618,47.841858],[1.938872,47.842182],[1.939095,47.8421]]]},"id":35},{"type":"Feature","properties":{"name":"Résidence les Châtaigners","description":"Pour plus d'informations sur les résidence du CROUS: \nhttps://www.crous-orleans-tours.fr/logements/nos-residences/orleans/","_umap_options":{"color":"Orange","showLabel":true,"labelHover":true}},"geometry":{"type":"Polygon","coordinates":[[[1.928401,47.845844],[1.92816,47.845466],[1.928621,47.845307],[1.929002,47.845657],[1.928401,47.845844]]]}},{"type":"Feature","properties":{"description":"Pour plus d'informations sur les résidence étudiantes:\nhttps://www.crous-orleans-tours.fr/logements/nos-residences/","name":"Résidence les Charmes","_umap_options":{"color":"Orange","showLabel":true,"labelHover":true}},"geometry":{"type":"Polygon","coordinates":[[[1.933983,47.841264],[1.933393,47.840575],[1.934578,47.84017],[1.934777,47.840474],[1.934495,47.841127],[1.934251,47.841172],[1.933983,47.841264]]]}},{"type":"Feature","properties":{"name":"Résidence Aristote","description":"Pour plus d'informations sur les résidence étudiantes:\nhttps://www.crous-orleans-tours.fr/logements/nos-residences//","_umap_options":{"color":"Orange","labelHover":true,"showLabel":true}},"geometry":{"type":"Polygon","coordinates":[[[1.93693,47.841032],[1.936083,47.839853],[1.935541,47.840004],[1.93556,47.840042],[1.936263,47.84098],[1.936327,47.841039],[1.936515,47.840989],[1.936576,47.840974],[1.936654,47.840976],[1.93693,47.841032]]]},"id":30},{"type":"Feature","properties":{"name":"Résidence Aristote","_umap_options":{"labelHover":true,"showLabel":true,"color":"Orange","iconUrl":"/uploads/pictogram/lodging-24.png"}},"geometry":{"type":"Point","coordinates":[1.936018,47.840573]}},{"type":"Feature","properties":{"name":"Résidence les Charmes","_umap_options":{"color":"Orange","iconUrl":"/uploads/pictogram/lodging-24.png","labelHover":true,"showLabel":true}},"geometry":{"type":"Point","coordinates":[1.934339,47.840803]}},{"type":"Feature","properties":{"name":"Résidence les Châtaigners","_umap_options":{"labelHover":true,"showLabel":true,"color":"Orange","iconUrl":"/uploads/pictogram/lodging-24.png"}},"geometry":{"type":"Point","coordinates":[1.928503,47.845631]}},{"type":"Feature","properties":{"name":"Résidence les Dahlias","_umap_options":{"color":"Orange","iconUrl":"/uploads/pictogram/lodging-24.png","labelHover":true,"showLabel":true}},"geometry":{"type":"Point","coordinates":[1.939103,47.841999]}},{"type":"Feature","properties":{"name":"Résidence les Hêtres","_umap_options":{"color":"Orange","iconUrl":"/uploads/pictogram/lodging-24.png","showLabel":true,"labelHover":true}},"geometry":{"type":"Point","coordinates":[1.938545,47.840526]}},{"type":"Feature","properties":{"name":"Résidence les Magnolias","_umap_options":{"color":"Orange","iconUrl":"/uploads/pictogram/lodging-24.png","labelHover":true,"showLabel":true}},"geometry":{"type":"Point","coordinates":[1.928929,47.845226]}},{"type":"Feature","properties":{"name":"Résidence les Ormes","_umap_options":{"color":"Orange","iconUrl":"/uploads/pictogram/lodging-24.png","labelHover":true,"showLabel":true}},"geometry":{"type":"Point","coordinates":[1.937113,47.840018]}},{"type":"Feature","properties":{"name":"Résidence les Roses","_umap_options":{"color":"Orange","iconUrl":"/uploads/pictogram/lodging-24.png","labelHover":true,"showLabel":true}},"geometry":{"type":"Point","coordinates":[1.940412,47.84271]}},{"type":"Feature","properties":{"name":"Résidence Oxford","_umap_options":{"color":"Orange","labelHover":true,"showLabel":true,"iconClass":"Default","iconUrl":"/uploads/pictogram/lodging-24.png"}},"geometry":{"type":"Point","coordinates":[1.921256,47.846791]}},{"type":"Feature","properties":{"name":"Résidence Oxford","description":"Pour plus d'informations sur la résidence: \nhttp://residence-oxford.pagesperso-orange.fr/index.html","_umap_options":{"color":"Orange","popupTemplate":"Default","showLabel":true,"labelHover":true}},"geometry":{"type":"Polygon","coordinates":[[[1.920124,47.847064],[1.920848,47.8475],[1.922361,47.846416],[1.921685,47.845988],[1.920124,47.847064]]]}},{"type":"Feature","properties":{"name":"Résidence Stanford","description":"Pour plus d'informations sur la résidence:\nhttp://residence-oxford.pagesperso-orange.fr/index.html","_umap_options":{"color":"Orange","labelHover":true,"showLabel":true}},"geometry":{"type":"Polygon","coordinates":[[[1.921881,47.845866],[1.921312,47.845426],[1.921462,47.845304],[1.921974,47.845608],[1.922251,47.84545],[1.922473,47.845572],[1.922243,47.845761],[1.922712,47.846098],[1.922551,47.846208],[1.921881,47.845866]]]}},{"type":"Feature","properties":{"name":"Résidence Stanford","_umap_options":{"color":"Orange","iconClass":"Default","iconUrl":"/uploads/pictogram/lodging-24.png","labelHover":true,"showLabel":true}},"geometry":{"type":"Point","coordinates":[1.92205,47.845797]}},{"type":"Feature","properties":{"description":"Le Service de santé universitaire et Passerelle handicap sont à votre disposition tout au long de l'année universitaire pour répondre à vos besoins. \n\nIls vous proposent, entre autres, examens de santé, consultations, permanences psychologue et assistante sociale, mise à disposition de moyens pour compenser une situation particulière, temporaire ou permanente, accompagnement dans votre projet universitaire ou post-universitaire.\n\nOuvert du lundi au vendredi de 8h30 à 17h00, ce service est destiné uniquement aux étudiants. \nTel : 02 38 41 71 79\nMail : sante@univ-orleans.fr\n\nLien pour plus d'informations : http://www.univ-orleans.fr/vie/sumpps","name":"Service de santé universitaire","_umap_options":{"color":"Red","iconUrl":"/uploads/pictogram/hospital-24-white.png","showLabel":true,"labelHover":true}},"geometry":{"type":"Point","coordinates":[1.936489,47.840869]}}]}
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Résidence les Roses ",
+          "description": "Pour plus d'informations sur les résidence étudiantes:\nhttps://www.crous-orleans-tours.fr/logements/nos-residences/",
+          "_umap_options": {
+            "color": "Orange",
+            "labelHover": true,
+            "showLabel": true
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                1.940734,
+                47.842965
+              ],
+              [
+                1.940973,
+                47.842897
+              ],
+              [
+                1.940753,
+                47.842611
+              ],
+              [
+                1.940903,
+                47.842557
+              ],
+              [
+                1.940841,
+                47.842458
+              ],
+              [
+                1.940466,
+                47.842586
+              ],
+              [
+                1.940289,
+                47.842366
+              ],
+              [
+                1.939921,
+                47.842483
+              ],
+              [
+                1.939999,
+                47.842568
+              ],
+              [
+                1.940141,
+                47.842519
+              ],
+              [
+                1.940374,
+                47.842812
+              ],
+              [
+                1.940584,
+                47.842751
+              ],
+              [
+                1.940734,
+                47.842965
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Résidence Oxford",
+          "description": "Pour plus d'informations sur la résidence: \nhttp://residence-oxford.pagesperso-orange.fr/index.html",
+          "_umap_options": {
+            "color": "Orange",
+            "popupTemplate": "Default",
+            "showLabel": true,
+            "labelHover": true
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                1.920124,
+                47.847064
+              ],
+              [
+                1.920848,
+                47.8475
+              ],
+              [
+                1.922361,
+                47.846416
+              ],
+              [
+                1.921685,
+                47.845988
+              ],
+              [
+                1.920124,
+                47.847064
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Résidence Stanford",
+          "description": "Pour plus d'informations sur la résidence:\nhttp://residence-oxford.pagesperso-orange.fr/index.html",
+          "_umap_options": {
+            "color": "Orange",
+            "labelHover": true,
+            "showLabel": true
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                1.921881,
+                47.845866
+              ],
+              [
+                1.921312,
+                47.845426
+              ],
+              [
+                1.921462,
+                47.845304
+              ],
+              [
+                1.921974,
+                47.845608
+              ],
+              [
+                1.922251,
+                47.84545
+              ],
+              [
+                1.922473,
+                47.845572
+              ],
+              [
+                1.922243,
+                47.845761
+              ],
+              [
+                1.922712,
+                47.846098
+              ],
+              [
+                1.922551,
+                47.846208
+              ],
+              [
+                1.921881,
+                47.845866
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Résidence les Ormes ",
+          "description": "Pour plus d'informations sur les résidence étudiantes:\nhttps://www.crous-orleans-tours.fr/logements/nos-residences/",
+          "_umap_options": {
+            "labelHover": true,
+            "showLabel": true,
+            "color": "Orange"
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                1.937006,
+                47.840364
+              ],
+              [
+                1.937574,
+                47.840206
+              ],
+              [
+                1.937231,
+                47.839655
+              ],
+              [
+                1.937424,
+                47.839601
+              ],
+              [
+                1.937349,
+                47.839493
+              ],
+              [
+                1.93693,
+                47.839655
+              ],
+              [
+                1.937081,
+                47.839878
+              ],
+              [
+                1.936748,
+                47.839997
+              ],
+              [
+                1.937006,
+                47.840364
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Résidence les Magnolias",
+          "description": "Pour plus d'informations sur les résidence du CROUS: \nhttps://www.crous-orleans-tours.fr/logements/nos-residences/orleans/",
+          "_umap_options": {
+            "color": "Orange",
+            "showLabel": true,
+            "labelHover": true
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                1.929187,
+                47.84559
+              ],
+              [
+                1.92897,
+                47.845324
+              ],
+              [
+                1.928795,
+                47.845351
+              ],
+              [
+                1.928471,
+                47.844901
+              ],
+              [
+                1.928693,
+                47.844832
+              ],
+              [
+                1.928916,
+                47.845124
+              ],
+              [
+                1.929082,
+                47.845081
+              ],
+              [
+                1.929404,
+                47.845534
+              ],
+              [
+                1.929187,
+                47.84559
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Résidence les Hêtres",
+          "description": "Pour plus d'informations sur les résidence étudiantes:\nhttps://www.crous-orleans-tours.fr/logements/nos-residences/",
+          "_umap_options": {
+            "color": "Orange",
+            "labelHover": true,
+            "showLabel": true
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                1.938636,
+                47.840825
+              ],
+              [
+                1.938837,
+                47.84076
+              ],
+              [
+                1.938677,
+                47.840541
+              ],
+              [
+                1.938888,
+                47.840478
+              ],
+              [
+                1.938671,
+                47.840159
+              ],
+              [
+                1.938808,
+                47.840116
+              ],
+              [
+                1.938741,
+                47.840018
+              ],
+              [
+                1.938451,
+                47.840105
+              ],
+              [
+                1.938387,
+                47.840117
+              ],
+              [
+                1.93862,
+                47.840424
+              ],
+              [
+                1.938534,
+                47.840449
+              ],
+              [
+                1.938502,
+                47.840415
+              ],
+              [
+                1.938196,
+                47.840515
+              ],
+              [
+                1.938239,
+                47.840596
+              ],
+              [
+                1.938408,
+                47.840566
+              ],
+              [
+                1.938636,
+                47.840825
+              ]
+            ]
+          ]
+        },
+        "id": 38
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Résidence les Dahlias",
+          "description": "Pour plus d'informations sur les résidence étudiantes:\nhttps://www.crous-orleans-tours.fr/logements/nos-residences/",
+          "_umap_options": {
+            "color": "Orange",
+            "labelHover": true,
+            "showLabel": true
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                1.939095,
+                47.8421
+              ],
+              [
+                1.939242,
+                47.842287
+              ],
+              [
+                1.93946,
+                47.842217
+              ],
+              [
+                1.939256,
+                47.841936
+              ],
+              [
+                1.939446,
+                47.841875
+              ],
+              [
+                1.939355,
+                47.841752
+              ],
+              [
+                1.938966,
+                47.84188
+              ],
+              [
+                1.938784,
+                47.841655
+              ],
+              [
+                1.938532,
+                47.841743
+              ],
+              [
+                1.938403,
+                47.841801
+              ],
+              [
+                1.938486,
+                47.8419
+              ],
+              [
+                1.938618,
+                47.841858
+              ],
+              [
+                1.938872,
+                47.842182
+              ],
+              [
+                1.939095,
+                47.8421
+              ]
+            ]
+          ]
+        },
+        "id": 35
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Résidence les Châtaigners",
+          "description": "Pour plus d'informations sur les résidence du CROUS: \nhttps://www.crous-orleans-tours.fr/logements/nos-residences/orleans/",
+          "_umap_options": {
+            "color": "Orange",
+            "showLabel": true,
+            "labelHover": true
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                1.928401,
+                47.845844
+              ],
+              [
+                1.92816,
+                47.845466
+              ],
+              [
+                1.928621,
+                47.845307
+              ],
+              [
+                1.929002,
+                47.845657
+              ],
+              [
+                1.928401,
+                47.845844
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "description": "Pour plus d'informations sur les résidence étudiantes:\nhttps://www.crous-orleans-tours.fr/logements/nos-residences/",
+          "name": "Résidence les Charmes",
+          "_umap_options": {
+            "color": "Orange",
+            "showLabel": true,
+            "labelHover": true
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                1.933983,
+                47.841264
+              ],
+              [
+                1.933393,
+                47.840575
+              ],
+              [
+                1.934578,
+                47.84017
+              ],
+              [
+                1.934777,
+                47.840474
+              ],
+              [
+                1.934495,
+                47.841127
+              ],
+              [
+                1.934251,
+                47.841172
+              ],
+              [
+                1.933983,
+                47.841264
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Résidence Aristote",
+          "description": "Pour plus d'informations sur les résidence étudiantes:\nhttps://www.crous-orleans-tours.fr/logements/nos-residences//",
+          "_umap_options": {
+            "color": "Orange",
+            "labelHover": true,
+            "showLabel": true
+          }
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                1.93693,
+                47.841032
+              ],
+              [
+                1.936083,
+                47.839853
+              ],
+              [
+                1.935541,
+                47.840004
+              ],
+              [
+                1.93556,
+                47.840042
+              ],
+              [
+                1.936263,
+                47.84098
+              ],
+              [
+                1.936327,
+                47.841039
+              ],
+              [
+                1.936515,
+                47.840989
+              ],
+              [
+                1.936576,
+                47.840974
+              ],
+              [
+                1.936654,
+                47.840976
+              ],
+              [
+                1.93693,
+                47.841032
+              ]
+            ]
+          ]
+        },
+        "id": 30
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Résidence Aristote",
+          "_umap_options": {
+            "labelHover": true,
+            "showLabel": true,
+            "color": "Orange",
+            "iconUrl": "/uploads/pictogram/lodging-24.png"
+          }
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            1.936018,
+            47.840573
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Résidence les Charmes",
+          "_umap_options": {
+            "color": "Orange",
+            "iconUrl": "/uploads/pictogram/lodging-24.png",
+            "labelHover": true,
+            "showLabel": true
+          }
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            1.934339,
+            47.840803
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Résidence les Châtaigners",
+          "_umap_options": {
+            "labelHover": true,
+            "showLabel": true,
+            "color": "Orange",
+            "iconUrl": "/uploads/pictogram/lodging-24.png"
+          }
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            1.928503,
+            47.845631
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Résidence les Dahlias",
+          "_umap_options": {
+            "color": "Orange",
+            "iconUrl": "/uploads/pictogram/lodging-24.png",
+            "labelHover": true,
+            "showLabel": true
+          }
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            1.939103,
+            47.841999
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Résidence les Hêtres",
+          "_umap_options": {
+            "color": "Orange",
+            "iconUrl": "/uploads/pictogram/lodging-24.png",
+            "showLabel": true,
+            "labelHover": true
+          }
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            1.938545,
+            47.840526
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Résidence les Magnolias",
+          "_umap_options": {
+            "color": "Orange",
+            "iconUrl": "/uploads/pictogram/lodging-24.png",
+            "labelHover": true,
+            "showLabel": true
+          }
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            1.928929,
+            47.845226
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Résidence les Ormes",
+          "_umap_options": {
+            "color": "Orange",
+            "iconUrl": "/uploads/pictogram/lodging-24.png",
+            "labelHover": true,
+            "showLabel": true
+          }
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            1.937113,
+            47.840018
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Résidence les Roses",
+          "_umap_options": {
+            "color": "Orange",
+            "iconUrl": "/uploads/pictogram/lodging-24.png",
+            "labelHover": true,
+            "showLabel": true
+          }
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            1.940412,
+            47.84271
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Résidence Oxford",
+          "_umap_options": {
+            "color": "Orange",
+            "labelHover": true,
+            "showLabel": true,
+            "iconClass": "Default",
+            "iconUrl": "/uploads/pictogram/lodging-24.png"
+          }
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            1.921256,
+            47.846791
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Résidence Stanford",
+          "_umap_options": {
+            "color": "Orange",
+            "iconClass": "Default",
+            "iconUrl": "/uploads/pictogram/lodging-24.png",
+            "labelHover": true,
+            "showLabel": true
+          }
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            1.92205,
+            47.845797
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "description": "Le Service de santé universitaire et Passerelle handicap sont à votre disposition tout au long de l'année universitaire pour répondre à vos besoins. \n\nIls vous proposent, entre autres, examens de santé, consultations, permanences psychologue et assistante sociale, mise à disposition de moyens pour compenser une situation particulière, temporaire ou permanente, accompagnement dans votre projet universitaire ou post-universitaire.\n\nOuvert du lundi au vendredi de 8h30 à 17h00, ce service est destiné uniquement aux étudiants. \nTel : 02 38 41 71 79\nMail : sante@univ-orleans.fr\n\nLien pour plus d'informations : http://www.univ-orleans.fr/vie/sumpps",
+          "name": "Service de santé universitaire",
+          "_umap_options": {
+            "color": "Red",
+            "iconUrl": "/uploads/pictogram/hospital-24-white.png",
+            "showLabel": true,
+            "labelHover": true
+          }
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            1.936489,
+            47.840869
+          ]
+        }
+      }
+    ]
+  }

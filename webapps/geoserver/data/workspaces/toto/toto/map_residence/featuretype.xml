@@ -1,5 +1,5 @@
 <featureType>
-  <id>FeatureTypeInfoImpl--5c9183ba:18c7d0ede08:-7fee</id>
+  <id>FeatureTypeInfoImpl-2383f476:18c81b1724a:-7fef</id>
   <name>map_residence</name>
   <nativeName>map_residence</nativeName>
   <namespace>
@@ -21,16 +21,16 @@
   AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]]</nativeCRS>
   <srs>EPSG:4326</srs>
   <nativeBoundingBox>
-    <minx>1.920123934745789</minx>
+    <minx>0.70011430978775</minx>
     <maxx>1.940973043441772</maxx>
-    <miny>47.83949279785156</miny>
+    <miny>47.35382843017578</miny>
     <maxy>47.847503662109375</maxy>
     <crs>EPSG:4326</crs>
   </nativeBoundingBox>
   <latLonBoundingBox>
-    <minx>1.920123934745789</minx>
+    <minx>0.70011430978775</minx>
     <maxx>1.940973043441772</maxx>
-    <miny>47.83949279785156</miny>
+    <miny>47.35382843017578</miny>
     <maxy>47.847503662109375</maxy>
     <crs>EPSG:4326</crs>
   </latLonBoundingBox>

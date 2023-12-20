@@ -1,16 +1,16 @@
 <layer>
   <name>map_batiment</name>
-  <id>LayerInfoImpl--5c9183ba:18c7d0ede08:-7ffd</id>
+  <id>LayerInfoImpl-2383f476:18c81b1724a:-7ff2</id>
   <type>VECTOR</type>
   <defaultStyle>
     <id>StyleInfoImpl--570ae188:124761b8d78:-7fe0</id>
   </defaultStyle>
   <resource class="featureType">
-    <id>FeatureTypeInfoImpl--5c9183ba:18c7d0ede08:-7ffe</id>
+    <id>FeatureTypeInfoImpl-2383f476:18c81b1724a:-7ff3</id>
   </resource>
   <attribution>
     <logoWidth>0</logoWidth>
     <logoHeight>0</logoHeight>
   </attribution>
-  <dateCreated>2023-12-18 13:58:38.313 UTC</dateCreated>
+  <dateCreated>2023-12-19 19:32:21.687 UTC</dateCreated>
 </layer>

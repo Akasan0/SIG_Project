@@ -8,7 +8,7 @@
   <script src="https://cdn.jsdelivr.net/npm/ol@v7.1.0/dist/ol.js"></script>
   <style>
     .map {
-      height: 500px;
+      height: 800px;
       width: 100%;
     }
   </style>
@@ -19,7 +19,8 @@
   <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function () {
       var geoserver = 'http://localhost:8080/geoserver/toto/wms';
-
+      var geoserver_vector = 'http://localhost:8080/geoserver/toto/';
+      /*
       var batiment_layer = new ol.layer.Tile({
         source: new ol.source.TileWMS({
           url: geoserver,
@@ -31,6 +32,41 @@
           transition: 0
         }),
         //opacity : 0.55
+      });
+      */
+
+      function polygonStyleFunction(feature, resolution) {
+  return new ol.style.Style({
+    stroke: new ol.style.Stroke({
+      color: 'black',
+      width: 3,
+    }),
+    text: new ol.style.Text({
+      text: feature.get('name'),
+        stroke : new ol.style.Stroke({color: 'black', width : 1})
+      }),
+    });
+  }
+
+      var str_map_bat = "ows?service=WFS&version=1.0.0&request=GetFeature&typeName=toto:map_batiment&maxFeatures=50&outputFormat=application/json"
+      
+      var vectorSource = new ol.source.Vector({
+      format: new ol.format.GeoJSON(),
+      url: function(extent) {
+        return (
+        geoserver_vector + str_map_bat +
+        '&srsname=EPSG:4326' +
+        '&bbox=' + extent.join(',') + ',EPSG:4326'
+      );
+      },
+
+  
+      strategy: ol.loadingstrategy.bbox
+      });
+
+      var batLayer = new ol.layer.Vector({
+        source: vectorSource,
+        style: polygonStyleFunction
       });
 
       var cafet_layer = new ol.layer.Tile({
@@ -90,7 +126,7 @@
           new ol.layer.Tile({
             source: new ol.source.OSM()
           }),
-          batiment_layer,
+          batLayer,
           services_layer,
           cafet_layer,
           transports_layer,
@@ -103,5 +139,6 @@
       });
     });
   </script>
+
 </body>
 </html>

@@ -1,5 +1,5 @@
 <featureType>
-  <id>FeatureTypeInfoImpl--5c9183ba:18c7d0ede08:-7ffe</id>
+  <id>FeatureTypeInfoImpl-2383f476:18c81b1724a:-7ff3</id>
   <name>map_batiment</name>
   <nativeName>map_batiment</nativeName>
   <namespace>
@@ -21,16 +21,16 @@
   AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]]</nativeCRS>
   <srs>EPSG:4326</srs>
   <nativeBoundingBox>
-    <minx>1.924924969673157</minx>
+    <minx>0.700632989406586</minx>
     <maxx>1.940246105194092</maxx>
-    <miny>47.84148406982422</miny>
+    <miny>47.35499954223633</miny>
     <maxy>47.84933853149414</maxy>
     <crs>EPSG:4326</crs>
   </nativeBoundingBox>
   <latLonBoundingBox>
-    <minx>1.924924969673157</minx>
+    <minx>0.700632989406586</minx>
     <maxx>1.940246105194092</maxx>
-    <miny>47.84148406982422</miny>
+    <miny>47.35499954223633</miny>
     <maxy>47.84933853149414</maxy>
     <crs>EPSG:4326</crs>
   </latLonBoundingBox>

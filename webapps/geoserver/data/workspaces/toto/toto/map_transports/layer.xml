@@ -1,16 +1,16 @@
 <layer>
   <name>map_transports</name>
-  <id>LayerInfoImpl--5c9183ba:18c7d0ede08:-7ff7</id>
+  <id>LayerInfoImpl-2383f476:18c81b1724a:-7fea</id>
   <type>VECTOR</type>
   <defaultStyle>
     <id>StyleInfoImpl-37b18cc6:14d5d036d48:-8000</id>
   </defaultStyle>
   <resource class="featureType">
-    <id>FeatureTypeInfoImpl--5c9183ba:18c7d0ede08:-7ff8</id>
+    <id>FeatureTypeInfoImpl-2383f476:18c81b1724a:-7feb</id>
   </resource>
   <attribution>
     <logoWidth>0</logoWidth>
     <logoHeight>0</logoHeight>
   </attribution>
-  <dateCreated>2023-12-18 14:10:39.295 UTC</dateCreated>
+  <dateCreated>2023-12-19 19:33:26.451 UTC</dateCreated>
 </layer>

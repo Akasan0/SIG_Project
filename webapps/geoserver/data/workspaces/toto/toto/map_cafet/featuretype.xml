@@ -1,5 +1,5 @@
 <featureType>
-  <id>FeatureTypeInfoImpl--5c9183ba:18c7d0ede08:-7ff0</id>
+  <id>FeatureTypeInfoImpl-2383f476:18c81b1724a:-7ff1</id>
   <name>map_cafet</name>
   <nativeName>map_cafet</nativeName>
   <namespace>
@@ -21,16 +21,16 @@
   AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]]</nativeCRS>
   <srs>EPSG:4326</srs>
   <nativeBoundingBox>
-    <minx>1.926093935966492</minx>
+    <minx>0.700544774532318</minx>
     <maxx>1.936986088752747</maxx>
-    <miny>47.84284591674805</miny>
+    <miny>47.352806091308594</miny>
     <maxy>47.8468017578125</maxy>
     <crs>EPSG:4326</crs>
   </nativeBoundingBox>
   <latLonBoundingBox>
-    <minx>1.926093935966492</minx>
+    <minx>0.700544774532318</minx>
     <maxx>1.936986088752747</maxx>
-    <miny>47.84284591674805</miny>
+    <miny>47.352806091308594</miny>
     <maxy>47.8468017578125</maxy>
     <crs>EPSG:4326</crs>
   </latLonBoundingBox>
