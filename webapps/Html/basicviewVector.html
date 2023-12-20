@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+//DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -205,7 +205,7 @@
 
 
 
-        /// --> récupération des features <-------------------------------------------------------------
+        /// --> récupération des features //-----------------------------------------------------------
 
         ///  --------------------------- TEST-----------------------------
 
@@ -234,7 +234,7 @@
 
         ///  --------------------------- TEST-----------------------------
 
-        /// --> configuration des layers <--------------------------------------------------------------
+        /// --> configuration des layers //------------------------------------------------------------
 
         var batLayer = new ol.layer.Vector({
             source: batimentSource,
@@ -289,7 +289,7 @@
         window.map = map; //pas nécessaire pour le moment
     });
 
-    <!-- Affichage des couches selon les checkboxs selectionnées dans la première colonne de choix -->
+    //-- Affichage des couches selon les checkboxs selectionnées dans la première colonne de choix -->
     function afficherItems() {
         var nomCouches = Array.from(document.querySelectorAll('.layer-checkbox:checked')).map(checkbox => checkbox.value);
 
@@ -299,7 +299,7 @@
         }
     }
 
-    <!-- Selection de toutes les checkboxs de la colonne de gauche -->
+    //-- Selection de toutes les checkboxs de la colonne de gauche -->
     function selectAll() {
         Object.values(window.layers).forEach(function (couche) {
             couche.setVisible(true);
@@ -309,7 +309,7 @@
             });
     }
 
-    <!-- Décoche toutes les checkboxs et enlève toutes les couches -->
+    //-- Décoche toutes les checkboxs et enlève toutes les couches -->
     function resetCouches() {
         Object.values(window.layers).forEach(function (couche) {
             couche.setVisible(false);
@@ -319,7 +319,7 @@
             });
     }
 
-    <!-- Changer l'affichage selon si prof ou étudiant -->
+    //-- Changer l'affichage selon si prof ou étudiant -->
     function changePublic(option) {
         var checkboxes = document.querySelectorAll('.public-checkbox');
         checkboxes.forEach(function (checkbox) {
@@ -426,12 +426,89 @@
         window.map.getView().setCenter(center);
       }
 
+    function exportGeojson(){
+      var batsource = window.sources['batimentSource'];
+      var cafetsource = window.sources['cafetSource'];
+      var transportsource = window.sources['transportSource'];
+      var residencesource = window.sources['residenceSource'];
+      var servsource = window.sources['serviceSource'];
 
-    <!-- Récupérer les informations de tous les formulaires et toutes les checkboxs -->
+      var allsources = [batsource, cafetsource, transportsource, residencesource, servsource];
+
+      const format = new ol.format.GeoJSON({featureProjection: 'EPSG:3857'});
+      const download = document.getElementById('download');
+      var features = [];
+      
+      allsources.forEach(function(source){
+        source.getFeatures().forEach(function(f){
+          features.push(f)
+        });
+      });
+      const geojsonStr = format.writeFeatures(features);
+      const blob = new Blob([geojsonStr], { type: 'application/json' });
+      const downloadLink = document.createElement('a');
+
+      downloadLink.href = URL.createObjectURL(blob);
+      downloadLink.download = 'exported_data.geojson';
+
+      // Append the link to the document
+      document.body.appendChild(downloadLink);
+
+      // Programmatically click on the link to trigger the download
+      downloadLink.click();
+
+      // Remove the link from the document
+      document.body.removeChild(downloadLink);
+    }
+
+    function exportCsv() {
+  var batsource = window.sources['batimentSource'];
+  var cafetsource = window.sources['cafetSource'];
+  var transportsource = window.sources['transportSource'];
+  var residencesource = window.sources['residenceSource'];
+  var servsource = window.sources['serviceSource'];
+
+  var allsources = [batsource, cafetsource, transportsource, residencesource, servsource];
+
+  // Create a CSV string with headers
+  var csv = 'ID,Name,Geometry\n';
+
+  allsources.forEach(function (source) {
+    source.getFeatures().forEach(function (feature) {
+      var name = feature.get('name');
+      var description = feature.get('description');
+      var geometryType = feature.getGeometry().getType();
+      var geometry = JSON.stringify(format.writeGeometry(feature.getGeometry()));
+
+      // Add a line for each feature
+      csv += name + ',' + description + ',' + geometry + '\n';
+    });
+  });
+
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const downloadLink = document.createElement('a');
+
+  downloadLink.href = URL.createObjectURL(blob);
+  downloadLink.download = 'exported_data.csv';
+
+  // Append the link to the document
+  document.body.appendChild(downloadLink);
+
+  // Programmatically click on the link to trigger the download
+  downloadLink.click();
+
+  // Remove the link from the document
+  document.body.removeChild(downloadLink);
+}
+    
+
+    //-- Récupérer les informations de tous les formulaires et toutes les checkboxs -->
     // TODO : commencer par les campus
     // TODO : faire la sélection
 
-    <!-- Actions effectuées au lancement de l'application. On décoche toutes les checkboxs (pour l'instant y'a juste ça -->
+
+
+    //-- Actions effectuées au lancement de l'application. On décoche toutes les checkboxs (pour l'instant y'a juste ça -->
     window.onload = function () {
         
         document.querySelectorAll('.layer-checkbox').forEach(checkbox => {
@@ -443,6 +520,7 @@
             checkbox.checked = false;
         });
     };
+
 
 </script>
 
@@ -477,6 +555,12 @@
             <option value="Tours">Tours</option>
         </select>
     </div>
+  </div>
+    <div class="selection">
+    <button onclick="exportCsv()">export CSV</button>
+    <br>
+    <button id="download" onclick="exportGeojson()">export Geojson</button>
+</div>
 </div>
 
 </body>
