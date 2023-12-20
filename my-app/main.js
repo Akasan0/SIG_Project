@@ -7,7 +7,8 @@ import {Map, View} from "ol";
 import * as proj from "ol/proj";
 import * as loadingstrategy from "ol/loadingstrategy";
 import * as extent from "ol/extent";
-
+import Draw from 'ol/interaction/Draw.js';
+import {isNull} from "ol/format/filter";
 
 console.log("TOTO");
 function polygonStyleFunction(feature, resolution) {
@@ -25,10 +26,10 @@ function polygonStyleFunction(feature, resolution) {
 
 const serviceStyle = new style.Style({
   fill: new style.Fill({
-    color: 'rgba(255, 0, 0, 0.5)' // Couleur de remplissage
+    color: 'rgba(200, 150, 150, 0.5)' // Couleur de remplissage
   }),
   stroke: new style.Stroke({
-    color: 'red', // Couleur de la bordure
+    color: 'rgba(200, 150, 150, 1)', // Couleur de la bordure
     width: 2 // Largeur de la bordure
   })
 });
@@ -41,6 +42,12 @@ const batimentStyle = new style.Style({
   stroke: new style.Stroke({
     color: 'blue', // Couleur de la bordure
     width: 2 // Largeur de la bordure
+  }),
+  image: new style.Circle({
+    radius: 5,
+    fill: new style.Fill({
+      color: 'blue' // Couleur de remplissage du cercle
+    })
   })
 });
 
@@ -83,6 +90,22 @@ const cafetStyle = new style.Style({
   stroke: new style.Stroke({
     color: 'purple', // Couleur de la bordure
     width: 2 // Largeur de la bordure
+  }),
+  image: new style.Circle({
+    radius: 5,
+    fill: new style.Fill({
+      color: 'purple' // Couleur de remplissage du cercle
+    })
+  })
+});
+
+const selectStyle = new style.Style({
+  fill: new style.Fill({
+    color: 'rgba(255, 0, 0, 0.5)' // Couleur de remplissage
+  }),
+  stroke: new style.Stroke({
+    color: 'red', // Couleur de la bordure
+    width: 2 // Largeur de la bordure
   })
 });
 
@@ -104,6 +127,13 @@ const batimentSource = new source.Vector({
   },
   strategy: loadingstrategy.bbox
 });
+
+batimentSource.on("change", function (event){
+  // récupérer le select
+  // parcourir la source (les features)
+  // ajouter chaquze feature au select
+  // prendre exemple sur les truc
+})
 
 const serviceSource = new source.Vector({
   format: new GeoJSON(),
@@ -212,13 +242,18 @@ const map = new Map({
   ],
   view: new View({
     center: proj.fromLonLat([1.934479273569592, 47.8437736162175]),
-    zoom: 16
+    zoom: 9
   })
 });
 
 const layers = {batLayer, cafetLayer, residenceLayer, transportsLayer, serviceLayer};
 const sources = {batimentSource, cafetSource, residenceSource, transportSource, serviceSource};
-const styles = {batimentStyle, cafetStyle, residenceStyle, transportStyle, serviceStyle}
+const styles = {batimentStyle, cafetStyle, residenceStyle, transportStyle, serviceStyle, selectStyle}
+var active_sources = [];
+window.active_features = [];
+window.active_layers = [];
+
+var boule = false;
 
 window.styles = styles;
 window.layers = layers;
@@ -228,67 +263,75 @@ window.map = map; //pas nécessaire pour le moment
 //-- Affichage des couches selon les checkboxs selectionnées dans la première colonne de choix -->
 function afficherItems() {
   var nomCouches = Array.from(document.querySelectorAll('.layer-checkbox:checked')).map(checkbox => checkbox.value);
-  console.log("EZPRFJPZERJPFZJEPF");
+
   for (var nomCouche in window.layers) {
     var couche = window.layers[nomCouche];
     couche.setVisible(nomCouches.includes(nomCouche));
-  }
-}
+    if (nomCouches.includes(nomCouche)) {
+      window.active_layers.push(couche);
+      var source = couche.getSource()
+      active_sources.push(source);
 
-//-- Selection de toutes les checkboxs de la colonne de gauche -->
-function selectAll() {
-  Object.values(window.layers).forEach(function (couche) {
-    couche.setVisible(true);
-  });
-  document.querySelectorAll('.layer-checkbox').forEach(checkbox => {
-    checkbox.checked = true;
-  });
+      //Test pour afficher seulement la selection de filière, pas bien expliqué mais tkt
+      if (nomCouche !== 'batLayer') {
+        source.getFeatures().forEach(function (feature) {
+          active_features.push(feature);
+        })
+      }
+      else {
+        if (!boule) {
+          source.getFeatures().forEach(function (feature) {
+            active_features.push(feature);
+          })
+        }
+      }
+    }
+  }
 }
 
 //-- Décoche toutes les checkboxs et enlève toutes les couches -->
-function resetCouches() {
-  Object.values(window.layers).forEach(function (couche) {
-    couche.setVisible(false);
-  });
+function resetChoix() {
   document.querySelectorAll('.layer-checkbox').forEach(checkbox => {
     checkbox.checked = false;
   });
+  toutUpdate();
 }
 
 //-- Changer l'affichage selon si prof ou étudiant -->
-function changePublic(option) {
-  var checkboxes = document.querySelectorAll('.public-checkbox');
-  checkboxes.forEach(function (checkbox) {
-    if (checkbox.value !== option) {
-      checkbox.checked = false;
+function changePublic() {
+  // on aurait pu utiliser les radio depuis le début pour ce selector comme ça pas de soucis :')
+  var selected = document.querySelector('input[name="radiocheck"]:checked');
+
+  /*var cafets = window.layers["cafetLayer"];
+  var transports = window.layers["transportsLayer"];
+  var residences = window.layers["residenceLayer"];*/
+
+  if (selected) {
+    if (selected.value === 'etudiant') {
+      document.querySelectorAll('.layer-checkbox').forEach(checkbox => {
+        if (['cafetLayer', 'transportsLayer', 'residenceLayer'].includes(checkbox.value)) {
+          checkbox.checked = true;
+        }
+      });
     }
-  });
-
-  /*for (var nomCouche in window.layers) {
-      var couche = window.layers[nomCouche];
-      couche.setVisible(false);
-  }*/
-
-  var checked = Array.from(document.querySelectorAll('.public-checkbox:checked')).map(checkbox => checkbox.value);
-  console.log(checked);
-
-  var cafets = window.layers['cafetLayer'];
-  var transports = window.layers['transportsLayer'];
-  var residences = window.layers['residenceLayer'];
-
-  if (checked.includes('etudiant')) {
-    cafets.setVisible(true);
-    transports.setVisible(true);
-    residences.setVisible(true);
+    else {
+      if (selected.value === 'professeur') {
+        document.querySelectorAll('.layer-checkbox').forEach(checkbox => {
+          if (['cafetLayer', 'transportsLayer'].includes(checkbox.value)) {
+            checkbox.checked = true;
+          }
+        });
+      }
+    }
   }
-
-  if (checked.includes('professeur')) {
-    cafets.setVisible(true);
-    transports.setVisible(true);
-  }
+  afficherItems();
 }
 
 function changeFiliere() {
+
+  var trouv = false;
+  var feats = [];
+
   var serviceSelected = document.getElementById('select-filiere').value;
 
   var batsource = window.sources['batimentSource'];
@@ -299,9 +342,72 @@ function changeFiliere() {
       f.setStyle(new style.Style({}));
     }
     else{
-      f.setStyle(window.styles['batimentStyle'])
+      trouv = true;
+      couleurStyle(f);
+      feats.push(f);
     }
   });
+
+  if (trouv) {
+    // OUAH C'EST MOOOOOOOOOOOOOOOOCHE
+    window.active_features = feats;
+    boule = true;
+    afficherItems();
+    boule = false;
+  }
+
+}
+
+function changeBat() {
+  var searchedBat = document.getElementById('select-bat').value;
+
+  var tousBats = [window.sources['batimentSource'], window.sources['cafetSource'], window.sources['residenceSource']];
+
+  tousBats.forEach(function (source) {
+    source.getFeatures().forEach(function (feature) {
+      if (feature.get('name') === searchedBat) {
+
+        tousStyles()
+
+        feature.setStyle(window.styles['selectStyle']);
+        window.active_features.push(feature);
+        window.map.getView().setCenter(extent.getCenter(feature.getGeometry().getExtent()));
+      }
+    })
+  })
+}
+
+function tousStyles() {
+  active_sources.forEach(function(source){
+    source.getFeatures().forEach(function (feature){
+      couleurStyle(feature);
+    })
+  })
+}
+
+// Ajouter un style à une feature en particulier. C'est dégueulasse mais ça marche :)
+function couleurStyle(item) {
+  for (var name in window.sources) {
+    window.sources[name].getFeatures().forEach(function (feature) {
+      if (feature === item) {
+        if (name === 'batimentSource') {
+          item.setStyle(window.styles['batimentStyle']);
+        }
+        if (name === 'cafetSource') {
+          item.setStyle(window.styles['cafetStyle']);
+        }
+        if (name === 'transportSource') {
+          item.setStyle(window.styles['transportStyle']);
+        }
+        if (name === 'residenceSource') {
+          item.setStyle(window.styles['residenceStyle']);
+        }
+        if (name === 'serviceSource') {
+          item.setStyle(window.styles['serviceStyle']);
+        }
+      }
+    })
+  }
 }
 
 function changeCampus() {
@@ -318,12 +424,12 @@ function changeCampus() {
   allsources.forEach(function (source) {
     source.getFeatures().forEach(function (feature) {
       if (campusSelected !== feature.get('campus')) {
-        console.log("ouais ici");
         feature.setStyle(new style.Style({}));
       }
       else {
-        feature.setStyle(window.styles['batimentStyle'])
+        couleurStyle(feature);
         //Style à changer en fonction du type de feature
+        //ajout de feature dans active_features
       }
     });
   });
@@ -331,15 +437,42 @@ function changeCampus() {
   miseAjourSelect(campusSelected);
 }
 
-function miseAjourSelect(campusSelected){
+function toutUpdate() {
+  active_sources = []
+  window.active_layers = [];
+  window.active_features = [];
+  afficherItems();
+  //changeFiliere();
+  changeCampus();
+  majBatiments();
+}
+
+function majBatiments() {
+  console.log("wesh");
+  var trouverBat = document.getElementById('select-bat');
+  while (trouverBat.firstChild) {
+    trouverBat.removeChild(trouverBat.firstChild);
+  }
+  var tousBats = [window.sources['batimentSource'], window.sources['cafetSource'], window.sources['residenceSource']];
+  tousBats.forEach(function (source) {
+    source.getFeatures().forEach(function (feature) {
+      var name = feature.get('name');
+      var option = document.createElement("option");
+      option.textContent = name;
+      option.value = name;
+      trouverBat.add(option);
+    })
+  })
+}
+
+function miseAjourSelect(campusSelected) {
   var formSelectServices = document.getElementById('select-filiere');
-  while (formSelectServices.firstChild){
-    formSelectServices.removeChild(formSelectServices.firstChild)
+  while (formSelectServices.firstChild) {
+    formSelectServices.removeChild(formSelectServices.firstChild);
   }
   var serviceSource = window.sources['serviceSource'];
-  serviceSource.getFeatures().forEach(function(f){
-    console.log('name =' +  f.get('name'));
-    if (f.get('campus') === campusSelected){
+  serviceSource.getFeatures().forEach(function(f) {
+    if (f.get('campus') === campusSelected) {
       var name = f.get('name');
       var option = document.createElement("option");
       option.textContent = name;
@@ -351,10 +484,22 @@ function miseAjourSelect(campusSelected){
 
 function exportCsv() {
   var features = [];
-  for (var sourceName in window.sources) {
+  /*for (var sourceName in window.sources) {
     var source = window.sources[sourceName];
     features = features.concat(source.getFeatures());
-  }
+  }*/
+/*
+  active_sources.forEach(function (source) {
+    features = features.concat(source.getFeatures());
+  })
+*/
+  var campusSelected = document.getElementById('select-campus').value;
+  active_features.forEach(function (f){
+    if (f.get('campus') === campusSelected) {
+      features.push(f);
+    }
+  })
+
   var csvData = "name;campus;description;geometry\n";
 
   features.forEach(function (feature) {
@@ -392,11 +537,18 @@ function exportGeojson() {
   const format = new GeoJSON({ featureProjection: 'EPSG:3857' });
   var features = [];
 
-  allsources.forEach(function (source) {
+  /*allsources.forEach(function (source) {
     source.getFeatures().forEach(function (f) {
       features.push(f);
     });
-  });
+  });*/
+
+  var campusSelected = document.getElementById('select-campus').value;
+  active_features.forEach(function (f){
+    if (f.get('campus') === campusSelected) {
+      features.push(f);
+    }
+  })
 
   const geojsonStr = format.writeFeatures(features);
   const blob = new Blob([geojsonStr], { type: 'application/json' });
@@ -416,6 +568,85 @@ function exportGeojson() {
 }
 
 
+// TEST POUR ADD DES TRUCS
+
+const typeSelect = document.getElementById('type');
+
+let draw; // global so we can remove it later
+function addInteraction() {
+  const value = typeSelect.value;
+
+  if (value !== 'None') {
+    draw = new Draw({
+      source: batimentSource,
+      type: typeSelect.value,
+      style: residenceStyle,
+    });
+
+    map.addInteraction(draw);
+  }
+}
+
+/**
+ * Handle change event.
+ */
+typeSelect.onchange = function () {
+  if(typeSelect.value !== 'None') {
+    map.removeInteraction(draw);
+    addInteraction();
+  }
+  else {
+    map.removeInteraction(draw);
+  }
+};
+
+///INTERACTION AJOUT DE FEATURES
+
+function addFeature(){
+  var f = window.actualdraw;
+  if(f !== null) {
+    var f_name = document.getElementById("featurename").value;
+    var f_description = document.getElementById("featuredescription").value;
+
+    f.set('name', f_name);
+    f.set('description', f_description);
+
+    window.actualdraw = null;
+  }
+  else{
+    alert("vous n'avez dessiné aucune feature !");
+  }
+  // a la fin
+
+}
+function openPopup() {
+  document.getElementById("popupAddFeature").style.display = "block";
+  document.getElementById("fermerFeatureBtn").style.display ="block";
+  document.getElementById("select-ajout").style.display = "block";
+  document.getElementById("ajouterFeatureBtn").style.display = "none";
+}
+function closePopup(){
+    document.getElementById("popupAddFeature").style.display = "none";
+    document.getElementById("select-ajout").style.display = "none";
+  document.getElementById("fermerFeatureBtn").style.display ="none";
+  document.getElementById("ajouterFeatureBtn").style.display = "block";
+}
+
+batimentSource.on("addfeature", function (event){
+  console.log("actualisation de la feature dessinée")
+  window.actualdraw = event.feature;
+  // feature.set('name', 'batimentajouter');
+  //openPopup();
+});
+
+document.getElementById("ajouterFeatureBtn").addEventListener("click", openPopup);
+document.getElementById("fermerFeatureBtn").addEventListener("click", closePopup);
+document.getElementById("popupAddButton").addEventListener("click", addFeature);
+
+//FIN INTERACTION ADD FEATURES
+
+
+
 const download = function (data, fileName) {
   const blob = new Blob([data], { type: 'text/csv' });
   const url = window.URL.createObjectURL(blob);
@@ -426,7 +657,6 @@ const download = function (data, fileName) {
 }
 
 function deplaceCam(location) {
-  console.log("oeoeoeoeoeoeoeoeoe");
   var center = null;
   switch (location) {
     case 'Orleans':
@@ -445,27 +675,101 @@ window.onload = function () {
   document.querySelectorAll('.layer-checkbox').forEach(checkbox => {
     checkbox.checked = false;
   });
+  document.querySelector('input[name="radiocheck"][value="tout"]').checked = true;
   document.getElementById('select-filiere').value = "";
   document.getElementById('select-campus').value = "";
+  document.getElementById('select-bat').value = "";
   document.querySelectorAll('.public-checkbox').forEach(checkbox => {
     checkbox.checked = false;
   });
+  majBatiments();
+  closePopup();
 }
 
-document.getElementById("batcheck").addEventListener("change", afficherItems);
-document.getElementById("cafetcheck").addEventListener("change", afficherItems);
-document.getElementById("residencecheck").addEventListener("change", afficherItems);
-document.getElementById("servicecheck").addEventListener("change", afficherItems);
-document.getElementById("transportcheck").addEventListener("change", afficherItems);
+document.getElementById("batcheck").addEventListener("change", toutUpdate);
+document.getElementById("cafetcheck").addEventListener("change", toutUpdate);
+document.getElementById("residencecheck").addEventListener("change", toutUpdate);
+document.getElementById("servicecheck").addEventListener("change", toutUpdate);
+document.getElementById("transportcheck").addEventListener("change", toutUpdate);
 
-document.getElementById("select_all").addEventListener("click", selectAll);
-document.getElementById("reset_all").addEventListener("click", resetCouches);
+document.getElementById("reset_choix").addEventListener("click", resetChoix);
 
-document.getElementById("check_etu").addEventListener("change", changePublic("etudiant"));
-document.getElementById("check_prof").addEventListener("change", changePublic("professeur"));
+document.getElementById("check_tout").addEventListener("change", changePublic);
+document.getElementById("check_etu").addEventListener("change", changePublic);
+document.getElementById("check_prof").addEventListener("change", changePublic);
 
 document.getElementById("select-filiere").addEventListener("change", changeFiliere);
+document.getElementById("select-bat").addEventListener("change", changeBat);
 
-document.getElementById("select-campus").addEventListener("change", changeCampus);
+document.getElementById("select-campus").addEventListener("change", toutUpdate);
 document.getElementById("exportCsv").addEventListener("click", exportCsv);
 document.getElementById("exportGeoJson").addEventListener("click", exportGeojson);
+
+////// REQUETE SUR GEOSERVER
+
+
+function ajouterFeaturesGeoServer(nomCouche, featuresGeoJSON, callback) {
+  const urlWFS = 'http://localhost:8080/geoserver/wfs';
+  const typeName = `toto:${nomCouche}`;
+  const credentials = 'toto:toto';
+  const authHeader = 'Basic ' + btoa(credentials);
+
+  // Convertir GeoJSON en XML (GML)
+  const options = {
+    method: 'POST',
+    mode:'no-cors',
+    headers: {
+      'Content-Type': 'text/xml',
+      'Authorization': authHeader,
+    },
+    body: JSON.stringify({
+      features: featuresGeoJSON.features,
+      typeName: typeName,
+    }),
+  };
+
+  fetch(urlWFS, options)
+      .then(response => response.text())
+      .then(data => {
+        callback(null, data);
+      })
+      .catch(error => {
+        callback(error, null);
+      });
+}
+
+// Exemple d'utilisation de la fonction avec GeoJSON
+const nomCoucheExistante = 'couche_existante';
+const featuresGeoJSON = {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [1.934479273569592, 47.8437736162175]
+      },
+      "properties": {
+        // Ajoutez ici les propriétés de votre feature
+      }
+    }
+    // Ajoutez d'autres features au besoin
+  ]
+};
+
+ajouterFeaturesGeoServer(nomCoucheExistante, featuresGeoJSON, (erreur, reponse) => {
+  if (erreur) {
+    console.error('Erreur lors de la requête:', erreur);
+  } else {
+    console.log('Réponse de GeoServer:', reponse);
+    // Traiter la réponse de GeoServer ici
+  }
+});
+
+
+
+
+
+
+
+

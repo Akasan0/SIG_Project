@@ -15,7 +15,7 @@
     <entry key="Batch insert size">1</entry>
     <entry key="preparedStatements">false</entry>
     <entry key="database">toto</entry>
-    <entry key="host">172.17.0.2</entry>
+    <entry key="host">172.17.0.3</entry>
     <entry key="Loose bbox">true</entry>
     <entry key="SSL mode">DISABLE</entry>
     <entry key="Estimated extends">true</entry>
@@ -27,7 +27,7 @@
     <entry key="create database">false</entry>
     <entry key="Method used to simplify geometries">FAST</entry>
     <entry key="port">5432</entry>
-    <entry key="passwd">crypt1:t39f58AoYtGkAlMvZgqk7w==</entry>
+    <entry key="passwd">crypt1:65G7+zP2FMhh76JelTuDaQ==</entry>
     <entry key="min connections">1</entry>
     <entry key="dbtype">postgis</entry>
     <entry key="namespace">toto</entry>
@@ -39,5 +39,5 @@
   </connectionParameters>
   <__default>false</__default>
   <dateCreated>2023-11-23 18:32:56.35 UTC</dateCreated>
-  <dateModified>2023-12-17 15:51:32.901 UTC</dateModified>
+  <dateModified>2023-12-20 23:29:35.82 UTC</dateModified>
 </dataStore>

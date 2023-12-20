@@ -14,8 +14,8 @@ function onMouseMove(browserEvent) {
     var el = document.getElementById('description');
 
     // Ajoutez une correction pour positionner l'infobulle au-dessus du point
-    var offsetX = 0; // Ajustez la valeur selon votre préférence
-    var offsetY = 0; // Ajustez la valeur selon votre préférence
+    var offsetX = 20; // Ajustez la valeur selon votre préférence
+    var offsetY = 20; // Ajustez la valeur selon votre préférence
 
     el.innerHTML = '';
     map.forEachFeatureAtPixel(pixel, function(feature) {

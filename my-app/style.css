@@ -1,0 +1,7 @@
+.feature-info {
+    position: absolute;
+    background-color: white; /* Ajoutez d'autres styles de votre choix */
+    padding: 5px;
+    border: 1px solid #ccc;
+    z-index: 1000; /* Assurez-vous que le z-index est supérieur à celui des autres éléments sur la carte */
+}

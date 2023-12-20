@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +6,7 @@
   <link rel="stylesheet" href="node_modules/ol/ol.css">
   <style>
     .map {
-      height: 90%;
+      height: 70%;
       width: 100%;
     }
 
@@ -17,19 +16,152 @@
     }
 
     .toutes-selections{
+      background-color:antiquewhite;
+      width: 100%;
       display:flex;
+      float: left;
+      margin-top:1%;
       flex-direction: row;
     }
 
     .selection{
-      margin-left: 30px;
-      margin-right: 30px;
+      border:1px solid;
+      border-color: black;
+      background-color:aliceblue;
+      border-radius: 5px;
+      width: 100%;
+      float: left;
+      margin-top: 1%;
+      margin-bottom: 1%;
+      padding-top: 0.5%;
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+    .btn {
+      background-color: #04AA6D;
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+    }
+    .csvbutton {
+      background-color: #2d51df;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      border-radius: 12px;
+    }
+    .topright {
+      position: absolute;
+      right: 2%;
+      top: 2%;
+      float:right;
+      height: auto;
+      font-size: 18px;
+      z-index: 1;
+    }
+    .botleft {
+      position: relative;
+      left: 2%;
+      bottom: 3%;
+      float:left;
+      height: auto;
+      font-size: 18px;
+      z-index: 1;
+    }
+
+    .featurediv
+    {
+      width: 100%;
+      border:1px solid;
+      border-color: black;
+      background-color:aliceblue;
+      border-radius: 5px;
+    }
+
+    .menudiv
+    {
+      background-color: antiquewhite;
+    }
+
+    @media screen and (max-width: 600px) {
+      .toutes-selections{
+        margin-top: 2%;
+        margin-bottom: 2%;
+        margin-left: 0%;
+        margin-right: 0%;
+        width: 100%;
+        display:flex;
+        float: left;
+        flex-direction: column;
+      }
+
+      .selection{
+        float: left;
+        margin-top: 8%;
+        margin-bottom: 8%;
+        margin-left: 0%;
+        margin-right: 0%;
+      }
     }
   </style>
 </head>
 <body>
+
+<div class="topright">
+  <button class="csvbutton" id="exportCsv">Export CSV</button>
+  <button class="csvbutton" id="exportGeoJson">Export GeoJson</button>
+</div>
+
 <div id="map" class="map"></div>
-<br><br>
+<div id="description" class="feature-info"></div>
+
+<div class="botleft">
+  <button class="csvbutton" id="ajouterFeatureBtn">Ajouter une feature</button>
+  <button class="csvbutton" id="fermerFeatureBtn">fermer l'ajout de feature</button>
+</div>
+
+
+<div class="featurediv">
+    <div class="formPopup" id="popupAddFeature">
+      <form id="popupAddFeatureForm" class="formContainer">
+        <h2>Entrez les données de votre nouvelle feature</h2>
+        <label for="featurename">
+          <strong>Nom : </strong>
+        </label>
+        <input type="text" id="featurename" placeholder="NomFeature" name="name" required>
+        <label for="featuredescription">
+          <strong>Description : </strong>
+        </label>
+        <input type="text" id="featuredescription" placeholder="Feature's Description" name="description" required>
+
+        <button id="popupAddButton" type="button" class="btn">ajouter la feature</button>
+
+      </form>
+    </div>
+
+
+
+
+  <form id="select-ajout" class="selection_ajout">
+    <label>Geometry type :</label>
+    <select id="type">
+      <option value="None">Aucune option</option>
+      <option value="Point">Point</option>
+      <option value="LineString">LineString</option>
+      <option value="Polygon">Polygon</option>
+    </select>
+  </form>
+</div>
+<br>
+
 
 <div class="toutes-selections">
   <div class="selection">
@@ -38,15 +170,15 @@
     <input id="residencecheck" type="checkbox" class="layer-checkbox" value="residenceLayer" >Résidences étudiantes<br>
     <input id="transportcheck" type="checkbox" class="layer-checkbox" value="transportsLayer" >Transports en commun<br>
     <input id="servicecheck" type="checkbox" class="layer-checkbox" value="serviceLayer">Services du campus<br>
-    <button id="select_all" >Tout selectionner</button>
     <br>
-    <button id="reset_all" >Réinitialiser</button>
+    <button id="reset_choix" class="btn">Clear les checkboxes</button>
   </div>
 
   <div class="selection">
     <p>Vous êtes :</p>
-    <input id="check_etu" type="checkbox" class="public-checkbox" value="etudiant" >Etudiant<br>
-    <input id="check_prof" type="checkbox" class="public-checkbox" value="professeur" >Professeur<br>
+    <input id="check_tout" type="radio" name="radiocheck" class="public-radio" value="tout" checked>Tout<br>
+    <input id="check_etu" type="radio" name="radiocheck" class="public-radio" value="etudiant">Etudiant<br>
+    <input id="check_prof" type="radio" name="radiocheck" class="public-radio" value="professeur">Professeur<br>
 
     <select id="select-filiere" name="select-filiere">
       <option value="" disabled>Choisissez une filière</option>
@@ -60,9 +192,18 @@
       <option value="Tours">Tours</option>
     </select>
   </div>
+
+  <div class="selection">
+    <select id="select-bat" name="select-bat">
+      <option value="" disabled>Trouver un bâtiment</option>
+    </select>
+  </div>
 </div>
-<button id="exportCsv">Export CSV</button>
-<button id="exportGeoJson">Export GeoJson</button>
+
+<br>
+
+
 <script type="module" src="main.js"></script>
+<script type="module" src="functiononMouseMove.js"></script>
 </body>
 </html>
