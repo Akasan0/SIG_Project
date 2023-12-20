@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Draw and Modify Features</title>
+  <link rel="stylesheet" href="node_modules/ol/ol.css">
+  <style>
+    .map {
+      height: 90%;
+      width: 100%;
+    }
+
+    html, body{
+      margin: 0;
+      height: 100%;
+    }
+
+    .toutes-selections{
+      display:flex;
+      flex-direction: row;
+    }
+
+    .selection{
+      margin-left: 30px;
+      margin-right: 30px;
+    }
+  </style>
+</head>
+<body>
+<div id="map" class="map"></div>
+<br><br>
+
+<div class="toutes-selections">
+  <div class="selection">
+    <input id="batcheck" type="checkbox" class="layer-checkbox" value="batLayer">Batiments d'enseignement<br>
+    <input id="cafetcheck" type="checkbox" class="layer-checkbox" value="cafetLayer" >Restaurants et caféterias<br>
+    <input id="residencecheck" type="checkbox" class="layer-checkbox" value="residenceLayer" >Résidences étudiantes<br>
+    <input id="transportcheck" type="checkbox" class="layer-checkbox" value="transportsLayer" >Transports en commun<br>
+    <input id="servicecheck" type="checkbox" class="layer-checkbox" value="serviceLayer">Services du campus<br>
+    <button id="select_all" >Tout selectionner</button>
+    <br>
+    <button id="reset_all" >Réinitialiser</button>
+  </div>
+
+  <div class="selection">
+    <p>Vous êtes :</p>
+    <input id="check_etu" type="checkbox" class="public-checkbox" value="etudiant" >Etudiant<br>
+    <input id="check_prof" type="checkbox" class="public-checkbox" value="professeur" >Professeur<br>
+
+    <select id="select-filiere" name="select-filiere">
+      <option value="" disabled>Choisissez une filière</option>
+    </select>
+  </div>
+
+  <div class="selection">
+    <select id="select-campus" name="select-campus">
+      <option value="" disabled>Choisissez un Campus</option>
+      <option value="Orleans">Orléans</option>
+      <option value="Tours">Tours</option>
+    </select>
+  </div>
+</div>
+<button id="exportCsv">Export CSV</button>
+<button id="exportGeoJson">Export GeoJson</button>
+<script type="module" src="main.js"></script>
+</body>
+</html>
