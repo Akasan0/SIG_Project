@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OpenLayers with GeoServer WMS</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.1.0/ol.css">
+    <script src="https://cdn.jsdelivr.net/npm/ol@v7.1.0/format/WKB.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/ol@v7.1.0/dist/ol.js"></script>
     <style>
         .map {
@@ -26,7 +27,7 @@
 </head>
 <body>
 <div id="map" class="map"></div>
-
+<script src="https://cdn.rawgit.com/Viglino/ol-ext/master/dist/ol-ext.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         
@@ -444,6 +445,47 @@
         });
     };
 
+function exportCsv() {
+    var features = [];
+    for (var sourceName in window.sources) {
+        var source = window.sources[sourceName];
+        features = features.concat(source.getFeatures());
+    }
+    var csvData = "name;campus;description;geometry\n";
+
+    features.forEach(function (feature) {
+        var name = feature.get('name') || '';
+        var campus = feature.get('campus') || '';
+        var description = feature.get('description') || '';
+        var f_extent = feature.getGeometry().getExtent();
+        var coords = ol.extent.getCenter(f_extent);
+        
+        var lonLat = ol.proj.toLonLat(coords)
+        var reversedLonLat = [lonLat[1], lonLat[0]];
+        var geometry = reversedLonLat;
+        
+
+        csvData += '"' + name + '";"' + campus + '";"' + description + '";"' + JSON.stringify(geometry) + '"\n';
+    });
+
+    // Maintenant, vous avez la variable csvData contenant les données CSV
+    // Vous pouvez faire quelque chose avec ces données, par exemple l'enregistrer dans un fichier ou l'envoyer à un service distant.
+    console.log(csvData);
+    // Vous pouvez également utiliser la fonction window.open pour ouvrir les données dans une nouvelle fenêtre.
+    // window.open('data:text/csv;charset=utf-8,' + encodeURIComponent(csvData));
+    download(csvData, 'export.csv');
+}
+
+const download = function (data, fileName) {
+    const blob = new Blob([data], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.setAttribute('href', url);
+    a.setAttribute('download', fileName);
+    a.click();
+}
+
+
 </script>
 
 <br><br>
@@ -476,6 +518,11 @@
             <option value="Orleans">Orléans</option>
             <option value="Tours">Tours</option>
         </select>
+    </div>
+        <div class="selection">
+        <button onclick="exportCsv()">export CSV</button>
+        <br>
+        <button onclick="exportGeojson()">export Geojson</button>
     </div>
 </div>
 
